@@ -18,6 +18,7 @@
 			<option value="6">Gorgo</option>
 			<option value="7">Harald</option>
 			<option value="8">Hojo Tokimune</option>
+			<option value="20">Montezuma</option>
 			<option value="9">Mvemba a Nzinga</option>
 			<option value="10">Pedro II</option>
 			<option value="11">Pericles</option>
@@ -42,7 +43,7 @@
 <script>
 	function chooseLeader() {
 		var selections = $('#leaders').val();
-		var randomInteger = getRndInteger(1, 19);
+		var randomInteger = getRndInteger(1, 20);
 		if (selections.includes(randomInteger.toString())) {
 			chooseLeader();
 		}
