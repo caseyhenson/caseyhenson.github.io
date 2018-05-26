@@ -1,1 +1,58 @@
-Hello World
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div class="row">
+	<div>
+		<p>
+			Select leaders who you <b>do not</b> wish to play. I'll randomly assign you someone else.
+		</p>
+		<select name="leaders" multiple size="20" id="leaders">
+			<option value="1">Catherine de Medici</option>
+			<option value="2">Cleopatra</option>
+			<option value="3">Frederick Barbarossa</option>
+			<option value="4">Gandhi</option>
+			<option value="5">Gilgamesh</option>
+			<option value="6">Gorgo</option>
+			<option value="7">Harald</option>
+			<option value="8">Hojo Tokimune</option>
+			<option value="9">Mvemba a Nzinga</option>
+			<option value="10">Pedro II</option>
+			<option value="11">Pericles</option>
+			<option value="12">Peter</option>
+			<option value="13">Phillip II</option>
+			<option value="14">Qin Shi Huang</option>
+			<option value="15">Saladin</option>
+			<option value="16">Teddy</option>
+			<option value="17">Tomyris</option>
+			<option value="18">Trajan</option>
+			<option value="19">Victoria</option>
+		</select>
+		<button onclick="chooseLeader()">Pick for me!</button>
+	</div>
+</div>
+<div class="row">
+	<p id="result"></p>
+</div>
+	</body>
+<html>
+
+<script>
+	function chooseLeader() {
+		var selections = $('#leaders').val();
+		var randomInteger = getRndInteger(1, 19);
+		if (selections.includes(randomInteger.toString())) {
+			chooseLeader();
+		}
+		else {
+			var leaderName = $('#leaders option[value=' + randomInteger + ']').text()
+			document.getElementById("result").innerHTML = leaderName;
+		}
+	}
+
+	function getRndInteger(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+</script>
